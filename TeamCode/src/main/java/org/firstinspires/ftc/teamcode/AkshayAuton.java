@@ -5,47 +5,136 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @Autonomous(name ="AkshayAutonomous", group = "LinearOpMode")
-// group is always LinearOpMode
 
 public class AkshayAuton extends LinearOpMode {
-// implement runOpMode method
+    static final double wheelDiameter = 3;
+    static final double ticksPerRevolution = 537.6;
+    double circumference = Math.PI * wheelDiameter;
+    // distance for one full rotation, how many do you need to go for distance
 
-    DcMotor leftMotor = null;
-    DcMotor rightMotor = null;
+
+    public double forward (double dist, int position) {
+        // Given a distance in inches, go forward that much
+        double rotation = dist/circumference;
+        // number of rotations to go distance
+        int ticks = (int) (rotation * ticksPerRevolution);
+        // ticks are a unit (motors have a certain amount of ticks per revolution)
+        // cast to int
+
+        frontLeft.setTargetPosition(ticks);
+        backLeft.setTargetPosition(ticks);
+        frontRight.setTargetPosition(ticks);
+        backRight.setTargetPosition(ticks);
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        // moves motor to a certain position based on the ticks and distance
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+            // empty while loop to hold the code
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
+
+        return dist;
+    }
+
+    public double reverse (double dist, int position) {
+        double rotation = dist/circumference;
+        int ticks = (int) ((rotation * ticksPerRevolution) * (-1));
+
+        frontLeft.setTargetPosition(ticks);
+        backLeft.setTargetPosition(ticks);
+        frontRight.setTargetPosition(ticks);
+        backRight.setTargetPosition(ticks);
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
+
+        return dist;
+    }
+
+    public double right (double dist, int position) {
+        double rotation = dist/circumference;
+        int ticks = (int) (rotation * ticksPerRevolution);
+
+        frontLeft.setTargetPosition(ticks);
+        backLeft.setTargetPosition(ticks * -1);
+        frontRight.setTargetPosition(ticks * -1);
+        backRight.setTargetPosition(ticks);
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
+
+        return dist;
+    }
+
+    public double left (double dist, int position) {
+        double rotation = dist/circumference;
+        int ticks = (int) (rotation * ticksPerRevolution);
+
+        frontLeft.setTargetPosition(ticks * -1);
+        backLeft.setTargetPosition(ticks);
+        frontRight.setTargetPosition(ticks);
+        backRight.setTargetPosition(ticks * -1);
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
+
+        return dist;
+    }
+
+    DcMotor frontLeft = null;
+    DcMotor backLeft = null;
+    DcMotor frontRight = null;
+    DcMotor backRight = null;
 
     @Override
     public void runOpMode() throws InterruptedException {
-        // initialize motors while the opMode is running
-        leftMotor = hardwareMap.dcMotor.get("leftMotor");
-        rightMotor = hardwareMap.dcMotor.get("rightMotor");
-        // sets the direction of the motors FORWARD
-        leftMotor.setDirection(DcMotor.Direction.REVERSE);
-        rightMotor.setDirection(DcMotor.Direction.REVERSE);
+        // initialize
+        frontLeft = hardwareMap.dcMotor.get("frontLeft");
+        backLeft = hardwareMap.dcMotor.get("backLeft");
+        frontRight = hardwareMap.dcMotor.get("frontRight");
+        backRight = hardwareMap.dcMotor.get("backRight");
 
         waitForStart();
-        // waits until you start the code on the test phone
 
-        leftMotor.setPower(1);
-        rightMotor.setPower(1);
-        // moves the motors at full speed
+        
 
-        sleep(1000);
-        // moves the robot for 1000 milliseconds
 
-        leftMotor.setPower(0);
-        rightMotor.setPower(0);
-        // stops motors
-
-        leftMotor.setPower(.5);
-        rightMotor.setPower(-.5);
-        // half speed
-
-        sleep(500);
-        // moves for 500 milliseconds
-
-        leftMotor.setPower(0);
-        rightMotor.setPower(0);
-        // stops motors
-        // forward, turn to the right, go forward again
     }
 }
