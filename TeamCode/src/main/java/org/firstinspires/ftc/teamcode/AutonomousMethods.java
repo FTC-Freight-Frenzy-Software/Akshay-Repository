@@ -187,10 +187,10 @@ public class AutonomousMethods extends LinearOpMode {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontRight.setTargetPosition(ticks * -1);
+        frontLeft.setTargetPosition(ticks * -1);
         backLeft.setTargetPosition(ticks * -1);
         frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
 
@@ -202,6 +202,31 @@ public class AutonomousMethods extends LinearOpMode {
         backRight.setPower(0);
 
         return dist;
+    }
+
+    public double turnRight (double degrees) {
+        double rotation = degrees * 0.0027777777778;
+        int ticks = (int) (rotation * ticksPerRevolution);
+
+        frontLeft.setTargetPosition(ticks);
+        backLeft.setTargetPosition(ticks);
+        frontRight.setTargetPosition(ticks * -1);
+        backRight.setTargetPosition(ticks * -1);
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
+
+        return degrees;
     }
 
     DcMotor frontLeft = null;
