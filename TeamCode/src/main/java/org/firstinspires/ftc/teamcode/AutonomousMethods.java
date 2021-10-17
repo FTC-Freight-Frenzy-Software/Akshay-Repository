@@ -14,7 +14,7 @@ public class AutonomousMethods extends LinearOpMode {
     // distance for one full rotation, how many do you need to go for distance
 
 
-    public double forward (double dist) {
+    public void forward (double dist) {
         // Given a distance in inches, go forward that much
         double rotation = dist/circumference;
         // number of rotations to go distance
@@ -40,11 +40,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double reverse (double dist) {
+    public void reverse (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) ((rotation * ticksPerRevolution) * (-1));
 
@@ -65,11 +63,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double right (double dist) {
+    public void right (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -90,11 +86,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double left (double dist) {
+    public void left (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -115,11 +109,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double rightDiagonalUp (double dist) {
+    public void rightDiagonalUp (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -137,11 +129,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double rightDiagonalDown (double dist) {
+    public void rightDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -158,11 +148,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double leftDiagonalUp (double dist) {
+    public void leftDiagonalUp (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -179,11 +167,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double leftDiagonalDown (double dist) {
+    public void leftDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
@@ -200,13 +186,10 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
-
-        return dist;
     }
 
-    public double turnRight (double degrees) {
-        double rotation = degrees * 0.0027777777778;
-        int ticks = (int) (rotation * ticksPerRevolution);
+    public void turnRight90 () {
+        int ticks = 90;
 
         frontLeft.setTargetPosition(ticks);
         backLeft.setTargetPosition(ticks);
@@ -225,14 +208,36 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft.setPower(0);
         frontRight.setPower(0);
         backRight.setPower(0);
+    }
 
-        return degrees;
+    public void turnLeft90 () {
+        int ticks = 90;
+
+        frontLeft.setTargetPosition(ticks * -1);
+        backLeft.setTargetPosition(ticks * -1);
+        frontRight.setTargetPosition(ticks);
+        backRight.setTargetPosition(ticks);
+
+        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+
+        }
+
+        frontLeft.setPower(0);
+        backLeft.setPower(0);
+        frontRight.setPower(0);
+        backRight.setPower(0);
     }
 
     DcMotor frontLeft = null;
     DcMotor backLeft = null;
     DcMotor frontRight = null;
     DcMotor backRight = null;
+    DcMotor intakeMotor = null;
     CRServo carouselServo = null;
     @Override
 
