@@ -15,6 +15,7 @@ public class AkshayMecanum extends LinearOpMode {
     public DcMotor intakeMotor = null;
     public Servo boxServo = null;
     public Servo liftServo = null;
+    public Servo carouselServo = null;
 
 
     public void runOpMode() {
@@ -25,6 +26,7 @@ public class AkshayMecanum extends LinearOpMode {
         intakeMotor = hardwareMap.get(DcMotor.class, "intakeMotor");
         boxServo = hardwareMap.get(Servo.class, "boxServo");
         liftServo = hardwareMap.get(Servo.class, "liftServo");
+        carouselServo = hardwareMap.get(Servo.class, "carouselServo");
 
         waitForStart();
 
@@ -50,9 +52,14 @@ public class AkshayMecanum extends LinearOpMode {
                 boxServo.setPosition(0.8);
             }
 
+            if (gamepad1.right_bumper) {
+                carouselServo.setPosition(0.7);
+            }
+
             intakeMotor.setPower(0);
             liftServo.setPosition(0);
             boxServo.setPosition(0);
+            carouselServo.setPosition(0);
 
         }
     }
