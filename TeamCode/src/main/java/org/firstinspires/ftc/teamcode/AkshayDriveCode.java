@@ -28,7 +28,7 @@ public class AkshayDriveCode extends LinearOpMode {
             // x is left and right
             frontLeft.setPower(1 * gamepad1.left_stick_y); // negate to move in opposite direction
             backLeft.setPower(-1 * gamepad1.right_stick_y);
-            frontRight.setPower(1 * gamepad1.right_stick_y)
+            frontRight.setPower(1 * gamepad1.right_stick_y);
             frontLeft.setPower(1 * gamepad1.left_stick_x);
             backLeft.setPower(-1 * gamepad1.left_stick_x);
             // there is a right stick and left stick on the controller
