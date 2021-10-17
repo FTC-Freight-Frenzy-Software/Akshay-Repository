@@ -50,6 +50,9 @@ public class AkshayMecanum extends LinearOpMode {
                 boxServo.setPosition(0.8);
             }
 
+            intakeMotor.setPower(0);
+            liftServo.setPosition(0);
+            boxServo.setPosition(0);
 
         }
     }
