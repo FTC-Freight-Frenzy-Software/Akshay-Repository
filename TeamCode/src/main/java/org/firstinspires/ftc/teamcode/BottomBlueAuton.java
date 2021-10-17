@@ -14,7 +14,7 @@ public class BottomBlueAuton extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         // foam tiles are 2 feet (24 inches) long
         methods.forward(7);
-        methods.turnRight(90);
+        methods.turnRight90();
         methods.forward(22);
 
         for (int i = 0; i < 8; i++) {
