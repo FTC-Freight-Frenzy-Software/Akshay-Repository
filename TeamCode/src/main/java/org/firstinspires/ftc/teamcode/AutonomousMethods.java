@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name ="AutonomousMethods", group = "LinearOpMode")
 
@@ -238,6 +239,8 @@ public class AutonomousMethods extends LinearOpMode {
     DcMotor frontRight = null;
     DcMotor backRight = null;
     DcMotor intakeMotor = null;
+    public Servo boxServo = null;
+    public Servo liftServo = null;
     CRServo carouselServo = null;
     @Override
 
@@ -246,6 +249,9 @@ public class AutonomousMethods extends LinearOpMode {
         backLeft = hardwareMap.dcMotor.get("backLeft");
         frontRight = hardwareMap.dcMotor.get("frontRight");
         backRight = hardwareMap.dcMotor.get("backRight");
+        intakeMotor = hardwareMap.dcMotor.get("intakeMotor");
+        boxServo = hardwareMap.get(Servo.class, "boxServo");
+        liftServo = hardwareMap.get(Servo.class, "liftServo");
         carouselServo = hardwareMap.get(CRServo.class, "carouselServo");
         carouselServo.setDirection(CRServo.Direction.FORWARD);
 
