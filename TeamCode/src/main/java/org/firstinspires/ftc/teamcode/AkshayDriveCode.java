@@ -10,26 +10,27 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 // TeleOp for driver control, Autonomous for autonomous
 
 public class AkshayDriveCode extends LinearOpMode {
-    // declare motors
-    // sets motor to no values
-    public DcMotor leftMotor = null;
-    public DcMotor rightMotor = null;
+    public DcMotor frontLeft = null;
+    public DcMotor backLeft = null;
+    public DcMotor frontRight = null;
+    public DcMotor backRight = null;
 
     public void runOpMode() {
-        // initialize motors
-        leftMotor = hardwareMap.get(DcMotor.class, "leftMotor");
-        rightMotor = hardwareMap.get(DcMotor.class, "rightMotor");
+        frontLeft = hardwareMap.get(DcMotor.class, "leftMotor");
+        backLeft = hardwareMap.get(DcMotor.class, "rightMotor");
+        frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        backRight = hardwareMap.get(DcMotor.class, "backRight");
 
-        // stops code until you press the start button on the phone
         waitForStart();
 
         while (opModeIsActive()) { // when you press start
             // y is up up and down
             // x is left and right
-            leftMotor.setPower(1 * gamepad1.left_stick_y); // negate to move in opposite direction
-            rightMotor.setPower(-1 * gamepad1.right_stick_y);
-            leftMotor.setPower(1 * gamepad1.left_stick_x);
-            rightMotor.setPower(-1 * gamepad1.left_stick_x);
+            frontLeft.setPower(1 * gamepad1.left_stick_y); // negate to move in opposite direction
+            backLeft.setPower(-1 * gamepad1.right_stick_y);
+            frontRight.setPower(1 * gamepad1.right_stick_y)
+            frontLeft.setPower(1 * gamepad1.left_stick_x);
+            backLeft.setPower(-1 * gamepad1.left_stick_x);
             // there is a right stick and left stick on the controller
             // sets up so the sticks move up along with the motors
             // to make slower, change the multiplier (original is 1 and -1 )
