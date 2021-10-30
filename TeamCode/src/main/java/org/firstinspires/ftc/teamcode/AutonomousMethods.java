@@ -23,93 +23,93 @@ public class AutonomousMethods extends LinearOpMode {
         // ticks are a unit (motors have a certain amount of ticks per revolution)
         // cast to int
 
-        frontLeft.setTargetPosition(ticks);
-        backLeft.setTargetPosition(ticks);
-        frontRight.setTargetPosition(ticks);
-        backRight.setTargetPosition(ticks);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks);
+        backLeftMotor.setTargetPosition(ticks);
+        frontRightMotor.setTargetPosition(ticks);
+        backRightMotor.setTargetPosition(ticks);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // moves motor to a certain position based on the ticks and distance
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
             // empty while loop to hold the code
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void reverse (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) ((rotation * ticksPerRevolution) * (-1));
 
-        frontLeft.setTargetPosition(ticks);
-        backLeft.setTargetPosition(ticks);
-        frontRight.setTargetPosition(ticks);
-        backRight.setTargetPosition(ticks);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks);
+        backLeftMotor.setTargetPosition(ticks);
+        frontRightMotor.setTargetPosition(ticks);
+        backRightMotor.setTargetPosition(ticks);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void right (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeft.setTargetPosition(ticks);
-        backLeft.setTargetPosition(ticks * -1);
-        frontRight.setTargetPosition(ticks * -1);
-        backRight.setTargetPosition(ticks);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks);
+        backLeftMotor.setTargetPosition(ticks * -1);
+        frontRightMotor.setTargetPosition(ticks * -1);
+        backRightMotor.setTargetPosition(ticks);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void left (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeft.setTargetPosition(ticks * -1);
-        backLeft.setTargetPosition(ticks);
-        frontRight.setTargetPosition(ticks);
-        backRight.setTargetPosition(ticks * -1);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks * -1);
+        backLeftMotor.setTargetPosition(ticks);
+        frontRightMotor.setTargetPosition(ticks);
+        backRightMotor.setTargetPosition(ticks * -1);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void rightDiagonalUp (double dist) {
@@ -117,127 +117,127 @@ public class AutonomousMethods extends LinearOpMode {
         int ticks = (int) (rotation * ticksPerRevolution);
 
 
-        frontLeft.setTargetPosition(ticks);
-        backRight.setTargetPosition(ticks);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks);
+        backRightMotor.setTargetPosition(ticks);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void rightDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeft.setTargetPosition(ticks * -1);
-        backRight.setTargetPosition(ticks * -1);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks * -1);
+        backRightMotor.setTargetPosition(ticks * -1);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void leftDiagonalUp (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontRight.setTargetPosition(ticks);
-        backLeft.setTargetPosition(ticks);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setTargetPosition(ticks);
+        backLeftMotor.setTargetPosition(ticks);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void leftDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeft.setTargetPosition(ticks * -1);
-        backLeft.setTargetPosition(ticks * -1);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks * -1);
+        backLeftMotor.setTargetPosition(ticks * -1);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void turnRight90 () {
         int ticks = 90;
 
-        frontLeft.setTargetPosition(ticks);
-        backLeft.setTargetPosition(ticks);
-        frontRight.setTargetPosition(ticks * -1);
-        backRight.setTargetPosition(ticks * -1);
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setTargetPosition(ticks);
+        backLeftMotor.setTargetPosition(ticks);
+        frontRightMotor.setTargetPosition(ticks * -1);
+        backRightMotor.setTargetPosition(ticks * -1);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
     public void turnLeft90 () {
         int ticks = 90;
 
-        frontLeft.setTargetPosition(ticks * -1);
-        backLeft.setTargetPosition(ticks * -1);
-        frontRight.setTargetPosition(ticks);
-        backRight.setTargetPosition(ticks);
+        frontLeftMotor.setTargetPosition(ticks * -1);
+        backLeftMotor.setTargetPosition(ticks * -1);
+        frontRightMotor.setTargetPosition(ticks);
+        backRightMotor.setTargetPosition(ticks);
 
-        frontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeft.isBusy() || frontRight.isBusy() || backLeft.isBusy() || backRight.isBusy()) {
+        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
 
         }
 
-        frontLeft.setPower(0);
-        backLeft.setPower(0);
-        frontRight.setPower(0);
-        backRight.setPower(0);
+        frontLeftMotor.setPower(0);
+        backLeftMotor.setPower(0);
+        frontRightMotor.setPower(0);
+        backRightMotor.setPower(0);
     }
 
-    DcMotor frontLeft = null;
-    DcMotor backLeft = null;
-    DcMotor frontRight = null;
-    DcMotor backRight = null;
+    DcMotor frontLeftMotor = null;
+    DcMotor backLeftMotor = null;
+    DcMotor frontRightMotor = null;
+    DcMotor backRightMotor = null;
     DcMotor intakeMotor = null;
     public Servo boxServo = null;
     public Servo liftServo = null;
@@ -245,10 +245,10 @@ public class AutonomousMethods extends LinearOpMode {
     @Override
 
     public void runOpMode() throws InterruptedException {
-        frontLeft = hardwareMap.dcMotor.get("frontLeft");
-        backLeft = hardwareMap.dcMotor.get("backLeft");
-        frontRight = hardwareMap.dcMotor.get("frontRight");
-        backRight = hardwareMap.dcMotor.get("backRight");
+        frontLeftMotor = hardwareMap.dcMotor.get("leftFrontMotor");
+        backLeftMotor = hardwareMap.dcMotor.get("leftBackMotor");
+        frontRightMotor = hardwareMap.dcMotor.get("rightFrontMotor");
+        backRightMotor = hardwareMap.dcMotor.get("rightBackMotor");
         intakeMotor = hardwareMap.dcMotor.get("intakeMotor");
         boxServo = hardwareMap.get(Servo.class, "boxServo");
         liftServo = hardwareMap.get(Servo.class, "liftServo");
