@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name ="AutonomousMethods", group = "LinearOpMode")
 
 public class AutonomousMethods extends LinearOpMode {
-    static final double wheelDiameter = 3;
+    static final double wheelDiameter = 3.7796;
     static final double ticksPerRevolution = 537.6;
     double circumference = Math.PI * wheelDiameter;
     // distance for one full rotation, how many do you need to go for distance
