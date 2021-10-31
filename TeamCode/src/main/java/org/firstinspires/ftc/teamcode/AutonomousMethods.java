@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name ="AutonomousMethods", group = "LinearOpMode")
@@ -14,6 +16,7 @@ public class AutonomousMethods extends LinearOpMode {
     double circumference = Math.PI * wheelDiameter;
     // distance for one full rotation, how many do you need to go for distance
 
+    AkshayConfiguration robot = new AkshayConfiguration();
 
     public void forward (double dist) {
         // Given a distance in inches, go forward that much
@@ -23,93 +26,93 @@ public class AutonomousMethods extends LinearOpMode {
         // ticks are a unit (motors have a certain amount of ticks per revolution)
         // cast to int
 
-        frontLeftMotor.setTargetPosition(ticks);
-        backLeftMotor.setTargetPosition(ticks);
-        frontRightMotor.setTargetPosition(ticks);
-        backRightMotor.setTargetPosition(ticks);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks);
+        robot.backLeftMotor.setTargetPosition(ticks);
+        robot.frontRightMotor.setTargetPosition(ticks);
+        robot.backRightMotor.setTargetPosition(ticks);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         // moves motor to a certain position based on the ticks and distance
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() || robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
             // empty while loop to hold the code
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void reverse (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) ((rotation * ticksPerRevolution) * (-1));
 
-        frontLeftMotor.setTargetPosition(ticks);
-        backLeftMotor.setTargetPosition(ticks);
-        frontRightMotor.setTargetPosition(ticks);
-        backRightMotor.setTargetPosition(ticks);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks);
+        robot.backLeftMotor.setTargetPosition(ticks);
+        robot.frontRightMotor.setTargetPosition(ticks);
+        robot.backRightMotor.setTargetPosition(ticks);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void right (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeftMotor.setTargetPosition(ticks);
-        backLeftMotor.setTargetPosition(ticks * -1);
-        frontRightMotor.setTargetPosition(ticks * -1);
-        backRightMotor.setTargetPosition(ticks);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks);
+        robot.backLeftMotor.setTargetPosition(ticks * -1);
+        robot.frontRightMotor.setTargetPosition(ticks * -1);
+        robot.backRightMotor.setTargetPosition(ticks);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void left (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeftMotor.setTargetPosition(ticks * -1);
-        backLeftMotor.setTargetPosition(ticks);
-        frontRightMotor.setTargetPosition(ticks);
-        backRightMotor.setTargetPosition(ticks * -1);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks * -1);
+        robot.backLeftMotor.setTargetPosition(ticks);
+        robot.frontRightMotor.setTargetPosition(ticks);
+        robot.backRightMotor.setTargetPosition(ticks * -1);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void rightDiagonalUp (double dist) {
@@ -117,145 +120,197 @@ public class AutonomousMethods extends LinearOpMode {
         int ticks = (int) (rotation * ticksPerRevolution);
 
 
-        frontLeftMotor.setTargetPosition(ticks);
-        backRightMotor.setTargetPosition(ticks);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks);
+        robot.backRightMotor.setTargetPosition(ticks);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void rightDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeftMotor.setTargetPosition(ticks * -1);
-        backRightMotor.setTargetPosition(ticks * -1);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks * -1);
+        robot.backRightMotor.setTargetPosition(ticks * -1);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void leftDiagonalUp (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontRightMotor.setTargetPosition(ticks);
-        backLeftMotor.setTargetPosition(ticks);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setTargetPosition(ticks);
+        robot.backLeftMotor.setTargetPosition(ticks);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void leftDiagonalDown (double dist) {
         double rotation = dist/circumference;
         int ticks = (int) (rotation * ticksPerRevolution);
 
-        frontLeftMotor.setTargetPosition(ticks * -1);
-        backLeftMotor.setTargetPosition(ticks * -1);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks * -1);
+        robot.backLeftMotor.setTargetPosition(ticks * -1);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void turnRight90 () {
         int ticks = 90;
 
-        frontLeftMotor.setTargetPosition(ticks);
-        backLeftMotor.setTargetPosition(ticks);
-        frontRightMotor.setTargetPosition(ticks * -1);
-        backRightMotor.setTargetPosition(ticks * -1);
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setTargetPosition(ticks);
+        robot.backLeftMotor.setTargetPosition(ticks);
+        robot.frontRightMotor.setTargetPosition(ticks * -1);
+        robot.backRightMotor.setTargetPosition(ticks * -1);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
     public void turnLeft90 () {
         int ticks = 90;
 
-        frontLeftMotor.setTargetPosition(ticks * -1);
-        backLeftMotor.setTargetPosition(ticks * -1);
-        frontRightMotor.setTargetPosition(ticks);
-        backRightMotor.setTargetPosition(ticks);
+        robot.frontLeftMotor.setTargetPosition(ticks * -1);
+        robot.backLeftMotor.setTargetPosition(ticks * -1);
+        robot.frontRightMotor.setTargetPosition(ticks);
+        robot.backRightMotor.setTargetPosition(ticks);
 
-        frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
-        while (frontLeftMotor.isBusy() || frontRightMotor.isBusy() || backLeftMotor.isBusy() || backRightMotor.isBusy()) {
+        while (robot.frontLeftMotor.isBusy() || robot.frontRightMotor.isBusy() ||robot.backLeftMotor.isBusy() || robot.backRightMotor.isBusy()) {
 
         }
 
-        frontLeftMotor.setPower(0);
-        backLeftMotor.setPower(0);
-        frontRightMotor.setPower(0);
-        backRightMotor.setPower(0);
+        robot.frontLeftMotor.setPower(0);
+        robot.backLeftMotor.setPower(0);
+        robot.frontRightMotor.setPower(0);
+        robot.backRightMotor.setPower(0);
     }
 
-    DcMotor frontLeftMotor = null;
-    DcMotor backLeftMotor = null;
-    DcMotor frontRightMotor = null;
-    DcMotor backRightMotor = null;
-    DcMotor intakeMotor = null;
-    public Servo boxServo = null;
-    public Servo liftServo = null;
-    CRServo carouselServo = null;
+    public void carouselServo () {
+        robot.carouselServo.setPosition(1);
+        sleep(2000);
+        robot.carouselServo.setPosition(0);
+    }
+
+    public DcMotor frontLeftMotor;  // four drivetrain motors
+    public DcMotor frontRightMotor;
+    public DcMotor backLeftMotor;
+    public DcMotor backRightMotor;
+
+    public Servo carouselServo;
+    static Servo boxServo;
+
+
+    public DcMotor intakeMotor;
+    public DcMotor liftMotor;
+    //public DcMotor wheelMotor = null;
+
+    HardwareMap hwMap = null;
+
+
+
+    public void runOpMode(HardwareMap ahwMap) throws InterruptedException {
+        hwMap = ahwMap;
+
+        // front left motor
+        frontLeftMotor = hwMap.get(DcMotor.class, "frontLeftMotor");  // initialize the motor
+        frontLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);  // set as forward
+        frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);  // do not use encoders for this
+        frontLeftMotor.setPower(0.0);  // initialize to no power
+
+        // front right motor
+        frontRightMotor = hwMap.get(DcMotor.class, "frontRightMotor");
+        frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRightMotor.setPower(0.0);
+
+        // back left motor
+        backLeftMotor = hwMap.get(DcMotor.class, "backLeftMotor");
+        backLeftMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeftMotor.setPower(0.0);
+
+        // back right motor
+        backRightMotor = hwMap.get(DcMotor.class, "backRightMotor");
+        backRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRightMotor.setPower(0.0);
+
+        // carousel servo
+        carouselServo = hwMap.get(Servo.class, "carouselServo");
+        carouselServo.setDirection(Servo.Direction.FORWARD);
+
+        //intake motor
+        intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
+        intakeMotor.setDirection(DcMotorSimple.Direction.REVERSE);
+        intakeMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        intakeMotor.setPower(0.0);
+
+        // transfer motor
+        liftMotor = hwMap.get(DcMotor.class, "liftMotor");
+        liftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
+        liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        liftMotor.setPower(0.0);
+
+        // box servo
+        boxServo = hwMap.get(Servo.class, "boxServo");
+        boxServo.setDirection(Servo.Direction.FORWARD);
+    }
+
     @Override
-
     public void runOpMode() throws InterruptedException {
-        frontLeftMotor = hardwareMap.dcMotor.get("leftFrontMotor");
-        backLeftMotor = hardwareMap.dcMotor.get("leftBackMotor");
-        frontRightMotor = hardwareMap.dcMotor.get("rightFrontMotor");
-        backRightMotor = hardwareMap.dcMotor.get("rightBackMotor");
-        intakeMotor = hardwareMap.dcMotor.get("intakeMotor");
-        boxServo = hardwareMap.get(Servo.class, "boxServo");
-        liftServo = hardwareMap.get(Servo.class, "liftServo");
-        carouselServo = hardwareMap.get(CRServo.class, "carouselServo");
-        carouselServo.setDirection(CRServo.Direction.FORWARD);
 
-        waitForStart();
     }
 }
 
