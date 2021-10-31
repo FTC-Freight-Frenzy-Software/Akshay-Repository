@@ -66,3 +66,6 @@ public class AkshayMecanum extends LinearOpMode {
         }
     }
 }
+// lift angle and lift height
+// use one button, convert ticks to inches in height for one function
+// intake first, then with one button, 
