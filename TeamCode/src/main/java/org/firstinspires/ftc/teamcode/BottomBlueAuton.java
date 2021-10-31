@@ -13,15 +13,11 @@ public class BottomBlueAuton extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         // foam tiles are 2 feet (24 inches) long
-        methods.forward(7);
-        methods.turnRight90();
-        methods.forward(22);
-
-        for (int i = 0; i < 8; i++) {
-            methods.carouselServo.setPower(1);
-            sleep(2000);
-            methods.carouselServo.setPower(0);
-            sleep(1000);
-        }
+            methods.forward(10);
+            methods.turnLeft90();
+            methods.forward(14.5);
+            // carousel servo moves forward for 2 seconds
+            methods.carouselServo();
     }
 }
+// forward, left, forward, turn carousel
